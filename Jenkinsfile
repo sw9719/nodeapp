@@ -1,19 +1,6 @@
 pipeline {
     agent any
 
-   environment { // getting stored credentials
-       DOCKERHUB_CREDENTIALS = credentials('imagerepo')
-   }
-
-   /*stages { // to clone repo. Enable this section if you are using inline jenkins script
-       stage('SCM Checkout') {
-           steps {
-               git branch: 'master', url: 'https://github.com/sw9719/nodeapp.git'
-           //sh 'whoami'
-           }
-       }
-    */
-
        stage('Docker Login') {
            steps {
                echo 'Logon in to docker hub'
@@ -41,7 +28,6 @@ pipeline {
                 }
             }
         }
-    }
 
     post {
         success {
