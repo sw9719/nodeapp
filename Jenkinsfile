@@ -27,7 +27,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    dockerImage = docker.build("your-docker-registry/your-image-name:${env.BUILD_NUMBER}")
+                    dockerImage = docker.build("sw9719/nodeapp:${env.BUILD_NUMBER}")
                 }
             }
         }
