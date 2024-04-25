@@ -27,7 +27,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    dockerImage = docker.build("sw9719/nodeapp:${env.BUILD_NUMBER}")
+                    dockerImage = docker.build("sw9719/nodeapp:latest")
                 }
             }
         }
@@ -35,7 +35,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    docker.withRegistry('https://docker.io', 'imagerepo') {
+                    docker.withRegistry('https://docker.io/', 'imagerepo') {
                         dockerImage.push()
                     }
                 }
