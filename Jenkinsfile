@@ -35,7 +35,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    docker.withRegistry('https://your-docker-registry', 'imagerepo') {
+                    docker.withRegistry('https://docker.io', 'imagerepo') {
                         dockerImage.push()
                     }
                 }
